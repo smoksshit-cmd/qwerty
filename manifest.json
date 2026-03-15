@@ -1,0 +1,12 @@
+{
+    "display_name": "Wardrobe & Hairstyles",
+    "loading_order": 10,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "SillyWardrobe",
+    "version": "1.0.0",
+    "homePage": "https://github.com/user/silly-wardrobe",
+    "auto_update": true
+}

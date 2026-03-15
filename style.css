@@ -1,0 +1,283 @@
+/* ============================================================
+   Wardrobe & Hairstyles — SillyTavern Extension Styles
+   ============================================================ */
+
+/* --- Settings container --- */
+.sw-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* --- Collapsible sections --- */
+.sw-section {
+    border: 1px solid var(--SmartThemeBorderColor, #555);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.sw-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--SmartThemeBlurTintColor, rgba(0,0,0,0.15));
+    transition: background 0.15s;
+}
+
+.sw-section-header:hover {
+    background: var(--SmartThemeBlurTintStrength, rgba(255,255,255,0.06));
+}
+
+.sw-section-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.sw-section-title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.sw-chevron {
+    transition: transform 0.25s;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.sw-chevron.sw-collapsed {
+    transform: rotate(-90deg);
+}
+
+.sw-section-body {
+    padding: 8px 10px;
+}
+
+.sw-hidden {
+    display: none !important;
+}
+
+/* --- Key toggle / refresh buttons --- */
+.sw-key-toggle,
+.sw-refresh {
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sw-refresh.loading i {
+    animation: sw-spin 0.7s linear infinite;
+}
+
+@keyframes sw-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* --- Outfit grid --- */
+.sw-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 30px;
+}
+
+.sw-empty {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.sw-card {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.sw-card:hover {
+    transform: scale(1.05);
+    border-color: var(--SmartThemeQuoteColor, #888);
+}
+
+.sw-card-active {
+    border-color: var(--SmartThemeQuoteColor, #4a9) !important;
+    box-shadow: 0 0 8px rgba(70, 170, 150, 0.4);
+}
+
+.sw-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sw-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    padding: 2px 4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 26px;
+}
+
+.sw-card-name {
+    font-size: 10px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 55px;
+}
+
+.sw-card-actions {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.sw-card-actions i {
+    font-size: 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.sw-card-del:hover {
+    color: #f66 !important;
+}
+
+.sw-has-desc {
+    color: #8d8 !important;
+    font-size: 9px !important;
+}
+
+.sw-check {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--SmartThemeQuoteColor, #4a9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+}
+
+/* --- Add row --- */
+.sw-add-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* --- Description panel --- */
+.sw-desc-panel {
+    margin-top: 6px;
+    padding: 8px;
+    border: 1px solid var(--SmartThemeBorderColor, #555);
+    border-radius: 6px;
+    background: var(--SmartThemeBlurTintColor, rgba(0,0,0,0.1));
+}
+
+.sw-desc-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.sw-desc-textarea {
+    width: 100%;
+    resize: vertical;
+    font-size: 12px;
+}
+
+.sw-desc-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.sw-desc-actions .menu_button {
+    font-size: 12px;
+    padding: 3px 8px;
+}
+
+.sw-desc-status {
+    margin-top: 6px;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.sw-status-ok {
+    color: #8d8;
+    background: rgba(0,180,100,0.1);
+}
+
+.sw-status-err {
+    color: #f88;
+    background: rgba(220,60,60,0.1);
+}
+
+/* --- Flex helpers (ST may provide these but just in case) --- */
+.sw-settings .flex-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.sw-settings .flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.sw-settings .flex1 {
+    flex: 1;
+}
+
+.sw-settings label {
+    font-size: 12px;
+    min-width: 90px;
+}
+
+.sw-settings .hint {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.sw-settings .checkbox_label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
